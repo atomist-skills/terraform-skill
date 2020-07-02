@@ -1,26 +1,26 @@
 subscription onPush {
-    Push {
-        repo {
-            defaultBranch
-            url
-            id
-            owner
-            name
-            org {
-                provider {
-                    apiUrl
-                }
-            }
-            channels {
-                name
-            }
+  Push {
+    repo {
+      defaultBranch
+      url
+      id
+      owner
+      name
+      org {
+        provider {
+          apiUrl
         }
-        branch
-        after {
-            timestamp
-            url
-            sha
-            message
-        }
+      }
+      channels {
+        name
+      }
     }
+    branch
+    after {
+      timestamp
+      url
+      sha
+      message
+    }
+  }
 }

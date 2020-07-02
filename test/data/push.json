@@ -97,9 +97,7 @@
                   {
                     "providerId": "THISTEAM1_1e54dda3-d438-43b3-a5ed-fce0a125ea69",
                     "ownerId": "THISTEAM1_atomist_THISTEAM1",
-                    "repoIds": [
-                      "THISTEAM1_THISTEAM1_atomist_157237462"
-                    ]
+                    "repoIds": ["THISTEAM1_THISTEAM1_atomist_157237462"]
                   }
                 ],
                 "excludes": null
@@ -115,28 +113,19 @@
             },
             {
               "name": "envvars",
-              "value": [
-                "foo=bar",
-                "bar=foo"
-              ]
+              "value": ["foo=bar", "bar=foo"]
             },
             {
               "name": "cmdlineargs",
-              "value": [
-                "no-color"
-              ]
+              "value": ["no-color"]
             },
             {
               "name": "cmdlinevars",
-              "value": [
-                "foo=bar"
-              ]
+              "value": ["foo=bar"]
             },
             {
               "name": "varfiles",
-              "value": [
-                "test.tfvars"
-              ]
+              "value": ["test.tfvars"]
             },
             {
               "name": "init",
@@ -161,9 +150,7 @@
             {
               "providerId": "THISTEAM1_1e54dda3-d438-43b3-a5ed-fce0a125ea69",
               "ownerId": "THISTEAM1_atomist_THISTEAM1",
-              "repoIds": [
-                "THISTEAM1_THISTEAM1_atomist_157237462"
-              ]
+              "repoIds": ["THISTEAM1_THISTEAM1_atomist_157237462"]
             }
           ],
           "excludes": null
@@ -179,28 +166,19 @@
       },
       {
         "name": "envvars",
-        "value": [
-          "foo=bar",
-          "bar=foo"
-        ]
+        "value": ["foo=bar", "bar=foo"]
       },
       {
         "name": "cmdlineargs",
-        "value": [
-          "no-color"
-        ]
+        "value": ["no-color"]
       },
       {
         "name": "cmdlinevars",
-        "value": [
-          "foo=bar"
-        ]
+        "value": ["foo=bar"]
       },
       {
         "name": "varfiles",
-        "value": [
-          "test.tfvars"
-        ]
+        "value": ["test.tfvars"]
       },
       {
         "name": "init",

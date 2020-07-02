@@ -97,9 +97,7 @@
                   {
                     "providerId": "TESTTEAM1_1e54dda3-d438-43b3-a5ed-fce0a125ea69",
                     "ownerId": "TESTTEAM1_atomist_TESTTEAM1",
-                    "repoIds": [
-                      "TESTTEAM1_TESTTEAM1_atomist_157237462"
-                    ]
+                    "repoIds": ["TESTTEAM1_TESTTEAM1_atomist_157237462"]
                   }
                 ],
                 "excludes": null
@@ -124,9 +122,7 @@
             {
               "providerId": "TESTTEAM1_1e54dda3-d438-43b3-a5ed-fce0a125ea69",
               "ownerId": "TESTTEAM1_atomist_TESTTEAM1",
-              "repoIds": [
-                "TESTTEAM1_TESTTEAM1_atomist_157237462"
-              ]
+              "repoIds": ["TESTTEAM1_TESTTEAM1_atomist_157237462"]
             }
           ],
           "excludes": null
