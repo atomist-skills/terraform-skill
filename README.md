@@ -10,9 +10,16 @@ Use terraform to converge changes to infrastructure via GitOps.
 
 # What it's useful for
 
-This skill enables you to automatically run Terraform whenever your git repos change and provide visibility and control
-via ChatOps.
-
+This skill enables you to automatically run Terraform whenever your git repos change and provide visibility into the
+process.
+  
+Terraform is an excellent tool for modeling the state of your cloud resources in code. In order to effectively make use
+of this tool in a team setting, all members of the team must be applying their changes to the cloud infrastructure in a
+standardized way — not running locally on their laptop. This skill allows the entire team to utilize a common workflow
+simply by pushing their changes to a git repo (and using all the same practices you would on any development project).
+In addition, the Terraform skill provides visibility into the infrastructure changes being applied either through the
+web based log view or through ChatOps integration.
+  
 By default, the skill will first run a `terraform plan` and notify you of the changes to be made via a Chat message.
 Here you can review the proposed changes and, if appropriate, approve them which will cause a `terraform apply` to be
 run. This skill can also be used in an `auto-approve` mode in which changes will be automatically approved provided a
