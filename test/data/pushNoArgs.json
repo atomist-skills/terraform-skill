@@ -1,0 +1,141 @@
+{
+  "data": {
+    "Push": [
+      {
+        "after": {
+          "message": "Update README.md",
+          "sha": "852a080517184d055fe973ed13e458a4992ffeef",
+          "timestamp": "2020-03-25T08:22:50-04:00",
+          "url": "h*******************************************************************************************f"
+        },
+        "branch": "master",
+        "repo": {
+          "channels": [
+            {
+              "name": "poc"
+            }
+          ],
+          "defaultBranch": "master",
+          "id": "TESTTEAM1_TESTTEAM1_atomist_157237462",
+          "name": "poc",
+          "org": {
+            "provider": {
+              "apiUrl": "h*********************/"
+            }
+          },
+          "owner": "atomist",
+          "url": "h*******************************************c"
+        }
+      }
+    ]
+  },
+  "extensions": {
+    "operationName": "onPush",
+    "query_id": "5d8bc21e-7cb7-4061-8f2f-084b4aa215eb",
+    "team_id": "TESTTEAM1",
+    "team_name": "atomist (prod)",
+    "correlation_id": "98e5476a-349d-4b98-a9ce-820240ab68bd.jZG3Q5Otekq7jVNIOT0xz"
+  },
+  "secrets": [
+    {
+      "uri": "atomist://api-key",
+      "value": "e*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************w"
+    }
+  ],
+  "skill": {
+    "id": "7c374b55-7508-48cd-9d6d-b6d75dd66ccf",
+    "name": "terraform-skill",
+    "namespace": "atomist",
+    "version": "0.0.1-20200325111056+sha.298fe53",
+    "dispatchStyle": "multiple",
+    "platform": "docker",
+    "artifacts": [
+      {
+        "__typename": "AtomistSkillDockerArtifact",
+        "name": "terraform-skill",
+        "args": null,
+        "command": null,
+        "env": null,
+        "image": "gcr.io/atomist-customer-skill-staging/terraform-skill:1.0.0-6efb13d5d6b4d6b1f2ff732633c57f9e489d89ff"
+      }
+    ],
+    "configuration": {
+      "repository": {
+        "commitSha": "2dbf4ac0840e97d3a3656df3e5f745a35e9b5cc4"
+      },
+      "instances": [
+        {
+          "name": "Execute Terraform",
+          "resourceProviders": [
+            {
+              "name": "github",
+              "typeName": "GitHubAppResourceProvider",
+              "selectedResourceProviders": [
+                { "id": "TESTTEAM1_1e54dda3-d438-43b3-a5ed-fce0a125ea69" }
+              ]
+            },
+            {
+              "name": "slack",
+              "typeName": "SlackResourceProvider",
+              "selectedResourceProviders": [
+                { "id": "7B86FA25-249B-4730-A471-9AC7FA3F0BC5" }
+              ]
+            },
+            {
+              "name": "gcp",
+              "typeName": "GoogleCloudPlatformProvider",
+              "selectedResourceProviders": [
+                { "id": "TESTTEAM1_625301bd-86fe-42be-ac3a-cd778960bdfe" }
+              ]
+            }
+          ],
+          "parameters": [
+            {
+              "name": "repos",
+              "value": {
+                "includes": [
+                  {
+                    "providerId": "TESTTEAM1_1e54dda3-d438-43b3-a5ed-fce0a125ea69",
+                    "ownerId": "TESTTEAM1_atomist_TESTTEAM1",
+                    "repoIds": [
+                      "TESTTEAM1_TESTTEAM1_atomist_157237462"
+                    ]
+                  }
+                ],
+                "excludes": null
+              }
+            },
+            {
+              "name": "init",
+              "value": true
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "configuration": {
+    "name": "Execute Terraform",
+    "parameters": [
+      {
+        "name": "repos",
+        "value": {
+          "includes": [
+            {
+              "providerId": "TESTTEAM1_1e54dda3-d438-43b3-a5ed-fce0a125ea69",
+              "ownerId": "TESTTEAM1_atomist_TESTTEAM1",
+              "repoIds": [
+                "TESTTEAM1_TESTTEAM1_atomist_157237462"
+              ]
+            }
+          ],
+          "excludes": null
+        }
+      },
+      {
+        "name": "init",
+        "value": true
+      }
+    ]
+  }
+}

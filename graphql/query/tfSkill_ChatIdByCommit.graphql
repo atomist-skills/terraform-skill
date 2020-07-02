@@ -1,0 +1,14 @@
+query tfSkill_ChatIdByCommit ($sha: String!){
+  Commit(sha: $sha) {
+    committer {
+      name
+      login
+      person {
+        chatId {
+          screenName
+          id
+        }
+      }
+    }
+  }
+}

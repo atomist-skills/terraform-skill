@@ -1,0 +1,219 @@
+{
+  "data": {
+    "Push": [
+      {
+        "after": {
+          "message": "Update README.md",
+          "sha": "3a779808c48408aa5d7c1adbdbcbeb9f619e5a18",
+          "timestamp": "2020-03-25T07:29:08-04:00",
+          "url": "h*******************************************************************************************8"
+        },
+        "branch": "nottherightbranch",
+        "repo": {
+          "channels": [
+            {
+              "name": "test-poc"
+            }
+          ],
+          "defaultBranch": "master",
+          "id": "THISTEAM1_THISTEAM1_atomist_157237462",
+          "name": "poc",
+          "org": {
+            "provider": {
+              "apiUrl": "h*********************/"
+            }
+          },
+          "owner": "atomist",
+          "url": "h*******************************************c"
+        }
+      }
+    ]
+  },
+  "extensions": {
+    "operationName": "onPush",
+    "query_id": "9259355a-d377-44bc-9865-09c66e5db4a6",
+    "team_id": "THISTEAM1",
+    "team_name": "atomist (prod)",
+    "correlation_id": "f2dfcd74-ca70-4e2f-a01f-27d3df698e8e.oh5HmNgvdRzjomlNkgANf"
+  },
+  "secrets": [
+    {
+      "uri": "atomist://api-key",
+      "value": "e*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************w"
+    }
+  ],
+  "skill": {
+    "id": "7c374b55-7508-48cd-9d6d-b6d75dd66ccf",
+    "name": "terraform-skill",
+    "namespace": "atomist",
+    "version": "0.0.1-20200325111056+sha.298fe53",
+    "dispatchStyle": "multiple",
+    "platform": "docker",
+    "artifacts": [
+      {
+        "__typename": "AtomistSkillDockerArtifact",
+        "name": "terraform-skill",
+        "args": null,
+        "command": null,
+        "env": null,
+        "image": "gcr.io/atomist-customer-skill-staging/terraform-skill:1.0.0-6efb13d5d6b4d6b1f2ff732633c57f9e489d89ff"
+      }
+    ],
+    "configuration": {
+      "repository": {
+        "commitSha": "86a2931c20135fcc08736ae4446d01f44494f092"
+      },
+      "instances": [
+        {
+          "name": "Execute Terraform",
+          "resourceProviders": [
+            {
+              "name": "github",
+              "typeName": "GitHubAppResourceProvider",
+              "selectedResourceProviders": [
+                { "id": "TESTTEAM1_1e54dda3-d438-43b3-a5ed-fce0a125ea69" }
+              ]
+            },
+            {
+              "name": "slack",
+              "typeName": "SlackResourceProvider",
+              "selectedResourceProviders": [
+                { "id": "7B86FA25-249B-4730-A471-9AC7FA3F0BC5" }
+              ]
+            },
+            {
+              "name": "gcp",
+              "typeName": "GoogleCloudPlatformProvider",
+              "selectedResourceProviders": [
+                { "id": "TESTTEAM1_625301bd-86fe-42be-ac3a-cd778960bdfe" }
+              ]
+            }
+          ],
+          "parameters": [
+            {
+              "name": "repos",
+              "value": {
+                "includes": [
+                  {
+                    "providerId": "THISTEAM1_1e54dda3-d438-43b3-a5ed-fce0a125ea69",
+                    "ownerId": "THISTEAM1_atomist_THISTEAM1",
+                    "repoIds": [
+                      "THISTEAM1_THISTEAM1_atomist_157237462"
+                    ]
+                  }
+                ],
+                "excludes": null
+              }
+            },
+            {
+              "name": "branch",
+              "value": "master"
+            },
+            {
+              "name": "base",
+              "value": "tf"
+            },
+            {
+              "name": "workspace",
+              "value": "test"
+            },
+            {
+              "name": "envvars",
+              "value": [
+                "foo=bar",
+                "bar=foo"
+              ]
+            },
+            {
+              "name": "cmdlineargs",
+              "value": [
+                "no-color"
+              ]
+            },
+            {
+              "name": "cmdlinevars",
+              "value": [
+                "foo=bar"
+              ]
+            },
+            {
+              "name": "varfiles",
+              "value": [
+                "test.tfvars"
+              ]
+            },
+            {
+              "name": "init",
+              "value": false
+            },
+            {
+              "name": "autoApprove",
+              "value": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "configuration": {
+    "name": "Execute Terraform",
+    "parameters": [
+      {
+        "name": "repos",
+        "value": {
+          "includes": [
+            {
+              "providerId": "THISTEAM1_1e54dda3-d438-43b3-a5ed-fce0a125ea69",
+              "ownerId": "THISTEAM1_atomist_THISTEAM1",
+              "repoIds": [
+                "THISTEAM1_THISTEAM1_atomist_157237462"
+              ]
+            }
+          ],
+          "excludes": null
+        }
+      },
+      {
+        "name": "branch",
+        "value": "master"
+      },
+      {
+        "name": "base",
+        "value": "tf"
+      },
+      {
+        "name": "workspace",
+        "value": "test"
+      },
+      {
+        "name": "envvars",
+        "value": [
+          "foo=bar",
+          "bar=foo"
+        ]
+      },
+      {
+        "name": "cmdlineargs",
+        "value": [
+          "no-color"
+        ]
+      },
+      {
+        "name": "cmdlinevars",
+        "value": [
+          "foo=bar"
+        ]
+      },
+      {
+        "name": "varfiles",
+        "value": [
+          "test.tfvars"
+        ]
+      },
+      {
+        "name": "init",
+        "value": false
+      }
+    ]
+  }
+}
