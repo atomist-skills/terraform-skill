@@ -8,7 +8,9 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "lib": ["DOM"],
+    "lib": [
+      "DOM"
+    ],
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
@@ -16,8 +18,16 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "include": ["index.ts", "bin/*.ts", "lib/**/*.ts", "test/**/*.ts"],
-  "exclude": [".#*"],
+  "include": [
+    "index.ts",
+    "skill.ts",
+    "bin/*.ts",
+    "lib/**/*.ts",
+    "test/**/*.ts"
+  ],
+  "exclude": [
+    ".#*"
+  ],
   "compileOnSave": true,
   "buildOnSave": false,
   "atom": {
