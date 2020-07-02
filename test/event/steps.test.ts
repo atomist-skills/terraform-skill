@@ -1,5 +1,5 @@
 import { createContext } from "@atomist/skill/lib/context";
-import * as steps from "@atomist/skill/lib/steps";
+import * as steps from "@atomist/skill";
 import * as fs from "fs-extra";
 import * as assert from "power-assert";
 import * as sinon from "sinon";
@@ -11,7 +11,7 @@ import {
   SetTerraformVersion,
 } from "../../lib/terraform";
 import { Project, Spawn, Exec } from "@atomist/skill/lib/project/project";
-import { RepositoryProviderType } from "@atomist/skill/lib/project";
+import { RepositoryProviderType } from "@atomist/skill/lib/repository";
 import {Push} from "../../lib/typings/types";
 import {HandlerStatus} from "@atomist/skill/lib/handler";
 import {handler, SetParamsStep} from "../../lib/events/onPush";

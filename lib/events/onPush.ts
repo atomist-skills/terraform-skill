@@ -1,29 +1,34 @@
-import { EventContext, EventHandler, HandlerStatus } from "@atomist/skill/lib/handler";
-import { gitHubComRepository, RepositoryId } from "@atomist/skill/lib/project";
-import { gitHubAppToken } from "@atomist/skill/lib/secrets";
-import { runSteps, Step, StepListener } from "@atomist/skill/lib/steps";
+import {
+  EventContext,
+  EventHandler,
+  HandlerStatus,
+  runSteps,
+  repository,
+  secret,
+  Step,
+  StepListener,
+} from "@atomist/skill";
 import { codeBlock } from "@atomist/slack-messages";
+import * as _ from "lodash";
 import {
   InitTerraform,
+  RunTerraformApply,
   RunTerraformPlan,
   SelectWorkspaceTerraform,
-  TerraformRegistration,
-  RunTerraformApply,
-  ValidateTerraform,
   SetTerraformVersion,
+  TerraformRegistration,
+  ValidateTerraform,
 } from "../terraform";
-import {
-  OnPushSubscription,
-} from "../typings/types";
+import { OnPushSubscription } from "../typings/types";
 import {
   buildMessage,
-  setParams,
+  configureLogging,
   findCommitterScreenName,
   hclCodePresent,
-  configureLogging,
+  setParams,
   SkillStepState,
 } from "../utils";
-import * as _ from "lodash";
+import {RepositoryId} from "@atomist/skill/lib/repository";
 
 export async function updateSlackState(
   title: string,
@@ -289,10 +294,10 @@ export const LoadProjectStep: Step<EventContext<OnPushSubscription>> = {
     run: async (ctx, params) => {
         const repo = determineProjectDetails(_.get(ctx, "data.Push"), (ctx as any).parameters);
         const credential = await ctx.credential.resolve(
-            gitHubAppToken({ owner: repo.owner, repo: repo.repo, apiUrl: repo.apiUrl }));
+            secret.gitHubAppToken({ owner: repo.owner, repo: repo.repo, apiUrl: repo.apiUrl }));
 
         // Load project
-        params.project = await ctx.project.clone(gitHubComRepository({
+        params.project = await ctx.project.clone(repository.gitHub({
             owner: repo.owner,
             repo: repo.repo,
             sha: repo.sha,

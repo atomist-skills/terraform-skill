@@ -1,5 +1,5 @@
 import { createLogger, Logger, Severity } from "@atomist/skill-logging";
-import { buttonForCommand } from "@atomist/skill/lib/button";
+import { buttonForCommand } from "@atomist/skill/lib/slack/button";
 import { EventContext, HandlerStatus } from "@atomist/skill/lib/handler";
 import { Project } from "@atomist/skill/lib/project/project";
 import { Microgrammar } from "@atomist/microgrammar";

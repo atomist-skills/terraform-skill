@@ -18,7 +18,6 @@ node_modules/
 /log/
 git-info.json
 lib/typings/types.ts
-skill.ts
 /dist
 /bundle
 /.skill
