@@ -1,0 +1,12 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/)
+and this project adheres to [Semantic Versioning](http://semver.org/).
+
+## [Unreleased](https://github.com/atomist-skills/terraform-skill/tree/HEAD)
+
+### Added
+
+-   Initial Version. [bdcbb78](https://github.com/atomist-skills/terraform-skill/commit/bdcbb78c6617d9ba8c21f3469bae60010aaa40bf)
