@@ -1,8 +1,8 @@
-# terraform-skill
+# `atomist/terraform-skill`
 
 <!---atomist-skill-description:start--->
 
-Use terraform to converge changes to infrastructure via GitOps.
+Use terraform to converge changes to infrastructure via GitOps
 
 <!---atomist-skill-description:end--->
 
