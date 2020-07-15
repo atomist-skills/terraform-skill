@@ -25,7 +25,7 @@ import {
 export const Skill = skill({
   name: "terraform-skill",
   namespace: "atomist",
-  displayName: "Terraform Skill",
+  displayName: "Run Terraform",
   author: "Atomist",
   categories: [Category.DevOps, Category.Deploy],
   homepageUrl: "https://github.com/atomist-skills/terraform-skill",
