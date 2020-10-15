@@ -1,5 +1,2 @@
-node_modules
 *.d.ts
-/events/types.ts
-/lib/typings/types.ts
-skill.ts
+**/typings/types.ts
