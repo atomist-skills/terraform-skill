@@ -14,13 +14,16 @@
  * limitations under the License.
  */
 
-import { createLogger, Logger, Severity } from "@atomist/skill-logging";
-import { buttonForCommand } from "@atomist/skill/lib/slack/button";
-import { EventContext, HandlerStatus } from "@atomist/skill/lib/handler";
-import { Project } from "@atomist/skill/lib/project/project";
 import { Microgrammar } from "@atomist/microgrammar";
-import { Step } from "@atomist/skill/lib/steps";
-import { codeBlock, SlackMessage, url } from "@atomist/slack-messages";
+import {
+	EventContext,
+	HandlerStatus,
+	project,
+	Step,
+	slack,
+	log,
+} from "@atomist/skill";
+import { createLogger, Logger } from "@atomist/skill-logging";
 import * as _ from "lodash";
 import * as fs from "fs-extra";
 import { OnPushSubscription } from "./typings/types";
@@ -34,7 +37,7 @@ export interface TerraformRegistration {
 	/**
 	 * Project
 	 */
-	project: Project;
+	project: project.Project;
 
 	/**
 	 * Set the base location for the terraform code in this project.  Relative to project root.
@@ -228,7 +231,7 @@ export const RunTerraformPlan: Step<
 		const msgId = `apply-${ctx.correlationId}`;
 		const actions = [];
 		const changes = result.code === 2;
-		const msgText = `*Plan Output* ${codeBlock(
+		const msgText = `*Plan Output* ${slack.codeBlock(
 			typeof result.message === "string"
 				? result.message
 				: result.message.join("\n"),
@@ -236,7 +239,7 @@ export const RunTerraformPlan: Step<
 
 		if (changes) {
 			actions.push(
-				buttonForCommand(
+				slack.buttonForCommand(
 					{
 						text: "Run Apply",
 						confirm: {
@@ -262,10 +265,10 @@ export const RunTerraformPlan: Step<
 				),
 			);
 		}
-		const msg: SlackMessage = {
+		const msg: slack.SlackMessage = {
 			attachments: [
 				{
-					author_name: url(
+					author_name: slack.url(
 						`https://go.atomist.com/log/${ctx.workspaceId}/${ctx.correlationId}`,
 						"Terraform Plan Confirmation",
 					),
@@ -275,7 +278,7 @@ export const RunTerraformPlan: Step<
 					text:
 						`*${params.project.id.owner}/${
 							params.project.id.repo
-						}* at ${url(
+						}* at ${slack.url(
 							ctx.data.Push[0].after.url,
 							`\`${params.project.id.sha.slice(0, 7)}\``,
 						)}\n\n` + msgText,
@@ -294,8 +297,8 @@ export const RunTerraformPlan: Step<
 		}
 
 		// Apply footer
-		msg.attachments[msg.attachments.length - 1].footer = url(
-			`https://go.atomist.com/manage/${ctx.workspaceId}/skills/configure/${ctx.skill.id}/${ctx.configuration[0].name}`,
+		msg.attachments[msg.attachments.length - 1].footer = slack.url(
+			`https://go.atomist.com/manage/${ctx.workspaceId}/skills/configure/${ctx.skill.id}/${ctx.configuration.name}`,
 			`${ctx.skill.namespace}/${ctx.skill.name}@${ctx.skill.version}`,
 		);
 		msg.attachments[
@@ -353,7 +356,7 @@ export const RunTerraformApply: Step<
 			code: result.code,
 			reason:
 				`*Apply Output:*\n\n` +
-				codeBlock(
+				slack.codeBlock(
 					typeof result.message === "string"
 						? result.message
 						: result.message.join("\n"),
@@ -384,7 +387,7 @@ export async function selectTfWorkspace(
 	} else {
 		await logger.log(
 			`Terraform workspace select failed => ${result.stderr}`,
-			Severity.ERROR,
+			log.Severity.Error,
 		);
 		return {
 			code: 1,
@@ -410,7 +413,7 @@ export async function runTfValidate(
 	} else {
 		await logger.log(
 			`Terraform Validate failed => ${result.stderr}`,
-			Severity.ERROR,
+			log.Severity.Error,
 		);
 		return {
 			code: 1,
@@ -441,7 +444,7 @@ export async function runTfInit(
 	} else {
 		await logger.log(
 			`Terraform initialize failed => ${result.stderr}`,
-			Severity.ERROR,
+			log.Severity.Error,
 		);
 		return {
 			code: 1,

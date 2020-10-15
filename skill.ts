@@ -27,10 +27,7 @@ export const Skill = skill({
 	namespace: "atomist",
 	displayName: "Run Terraform",
 	author: "Atomist",
-	categories: [Category.DevOps, Category.Deploy],
-	homepageUrl: "https://github.com/atomist-skills/terraform-skill",
-	repositoryUrl: "https://github.com/atomist-skills/terraform-skill.git",
-	iconUrl: "file://docs/icon.svg",
+	categories: [Category.DevOps],
 	license: "Apache-2.0",
 
 	runtime: {
@@ -146,6 +143,4 @@ export const Skill = skill({
 			image: "gcr.io/atomist-container-skills/terraform-skill",
 		},
 	},
-
-	subscriptions: ["file://graphql/subscription/*.graphql"],
 });

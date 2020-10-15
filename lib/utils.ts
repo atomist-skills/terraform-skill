@@ -19,8 +19,8 @@ import {
 	CommandContext,
 	EventContext,
 	HandlerStatus,
-} from "@atomist/skill/lib/handler";
-import { SlackMessage, url } from "@atomist/slack-messages/lib/SlackMessages";
+	slack,
+} from "@atomist/skill";
 import * as fs from "fs-extra";
 import { sprintf } from "sprintf-js";
 import { TerraformRegistration } from "./terraform";
@@ -81,7 +81,7 @@ export function buildMessage(
 	step: number,
 	steps: number,
 	state: SkillStepState,
-): SlackMessage {
+): slack.SlackMessage {
 	let header: string;
 	if (
 		params.project &&
@@ -92,7 +92,7 @@ export function buildMessage(
 	) {
 		header = `*${params.project.id.owner}/${
 			params.project.id.repo
-		}* at ${url(
+		}* at ${slack.url(
 			(params as any).commitUrl,
 			`\`${params.project.id.sha.slice(0, 7)}\``,
 		)}\n\n`;
@@ -113,14 +113,14 @@ export function buildMessage(
 			{
 				text: header ? header + text : text,
 				color: "#5f43e9",
-				author_name: url(
+				author_name: slack.url(
 					`https://go.atomist.com/log/${ctx.workspaceId}/${ctx.correlationId}`,
 					msgTitle,
 				),
 				author_icon:
 					"https://www.terraform.io/assets/images/og-image-8b3e4f7d.png",
 				fallback: msgTitle,
-				footer: url(
+				footer: slack.url(
 					`https://go.atomist.com/manage/` +
 						`${ctx.workspaceId}/skills/configure/${ctx.skill.id}/${ctx.configuration[0].name}`,
 					`${ctx.skill.namespace}/${ctx.skill.name}@${ctx.skill.version}`,
@@ -159,8 +159,8 @@ export async function retrieveGcpCreds(
 
 	const result: GcpAuthCred = await ctx.graphql.query(query, {
 		id:
-			ctx.configuration[0].resourceProviders.gcp
-				.selectedResourceProviders[0].id,
+			ctx.configuration.resourceProviders.gcp.selectedResourceProviders[0]
+				.id,
 	});
 	return result.GoogleCloudPlatformProvider[0].credential.secret;
 }
@@ -197,28 +197,28 @@ export async function setParams(
 	ctx: EventContext,
 	params: TerraformRegistration,
 ): Promise<TerraformRegistration> {
-	params.workspace = ctx.configuration[0].parameters.workspace;
-	params.args = ctx.configuration[0].parameters.cmdlineargs
-		? ctx.configuration[0].parameters.cmdlineargs.map(convertArgArray)
+	params.workspace = ctx.configuration.parameters.workspace;
+	params.args = ctx.configuration.parameters.cmdlineargs
+		? ctx.configuration.parameters.cmdlineargs.map(convertArgArray)
 		: [];
-	params.baseLocation = ctx.configuration[0].parameters.base;
-	params.init = ctx.configuration[0].parameters.init;
-	params.vars = ctx.configuration[0].parameters.cmdlinevars
-		? (ctx.configuration[0].parameters.cmdlinevars as string[]).map(
+	params.baseLocation = ctx.configuration.parameters.base;
+	params.init = ctx.configuration.parameters.init;
+	params.vars = ctx.configuration.parameters.cmdlinevars
+		? (ctx.configuration.parameters.cmdlinevars as string[]).map(
 				convertTfVarArray,
 		  )
 		: [];
-	params.varsFiles = ctx.configuration[0].parameters.varFiles
-		? ctx.configuration[0].parameters.varsFiles
+	params.varsFiles = ctx.configuration.parameters.varFiles
+		? ctx.configuration.parameters.varsFiles
 		: [];
-	params.envVars = ctx.configuration[0].parameters.envvars
-		? convertEnvArray(ctx.configuration[0].parameters.envvars)
+	params.envVars = ctx.configuration.parameters.envvars
+		? convertEnvArray(ctx.configuration.parameters.envvars)
 		: {};
-	params.autoApprove = ctx.configuration[0].parameters.autoApprove
-		? ctx.configuration[0].parameters.autoApprove
+	params.autoApprove = ctx.configuration.parameters.autoApprove
+		? ctx.configuration.parameters.autoApprove
 		: false;
-	params.version = ctx.configuration[0].parameters.version
-		? ctx.configuration[0].parameters.version
+	params.version = ctx.configuration.parameters.version
+		? ctx.configuration.parameters.version
 		: undefined;
 
 	// Set incoming secrets

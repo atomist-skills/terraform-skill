@@ -23,8 +23,8 @@ import {
 	secret,
 	Step,
 	StepListener,
+	slack,
 } from "@atomist/skill";
-import { codeBlock } from "@atomist/slack-messages";
 import * as _ from "lodash";
 import {
 	InitTerraform,
@@ -80,7 +80,7 @@ export async function updateSlackState(
 			title,
 			ctx as any,
 			params,
-			codeBlock(text) + fullRender,
+			slack.codeBlock(text) + fullRender,
 			currentStep,
 			stepCount,
 			state,
@@ -254,7 +254,7 @@ export const handler: EventHandler<
 	process.env.HOME = "/tmp";
 
 	// Test branch
-	const branch = (ctx.configuration[0].parameters as any).branch;
+	const branch = (ctx.configuration.parameters as any).branch;
 	if (branch && !(branch === ctx.data.Push[0].branch)) {
 		return {
 			code: 0,
@@ -263,7 +263,7 @@ export const handler: EventHandler<
 	}
 
 	// Configure Logging
-	configureLogging((ctx.configuration[0].parameters as any).logLevel);
+	configureLogging((ctx.configuration.parameters as any).logLevel);
 
 	// Define steps to run
 	const steps = [
@@ -280,7 +280,7 @@ export const handler: EventHandler<
 	const slackListener = await slackUpdate(
 		ctx,
 		steps,
-		ctx.configuration[0].parameters.autoApprove
+		ctx.configuration.parameters.autoApprove
 			? "Terraform Execution"
 			: "Terraform Plan Execution",
 		{
