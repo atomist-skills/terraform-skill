@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-schema: graphql/schema.json
+schema: node_modules/@atomist/skill/graphql/schema.json
 documents: graphql/**/*.graphql
 generates:
   ./lib/typings/types.ts:

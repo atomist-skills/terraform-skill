@@ -30,7 +30,7 @@ import { runSteps } from "@atomist/skill/lib/steps";
 
 export const handler: CommandHandler = async ctx => {
 	// Configure Logging
-	configureLogging((ctx.configuration[0].parameters as any).logLevel);
+	configureLogging((ctx.configuration?.[0]?.parameters as any).logLevel);
 
 	// Load data from the command handler input
 	const data = await ctx.parameters.prompt<{ data: string }>({
