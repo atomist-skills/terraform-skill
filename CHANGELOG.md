@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](https://github.com/atomist-skills/terraform-skill/compare/0.0.3...HEAD)
 
+### Changed
+
+-   Remove single dispatch. [#28](https://github.com/atomist-skills/terraform-skill/issues/28)
+
 ## [0.0.3](https://github.com/atomist-skills/terraform-skill/tree/0.0.3) - 2020-07-06
 
 ### Added
