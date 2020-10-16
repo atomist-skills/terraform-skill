@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@atomist/microgrammar": "^1.2.1",
-    "@atomist/skill": "^0.3.0",
+    "@atomist/skill": "^0.3.1",
     "fs-extra": "^9.0.1",
     "strip-ansi": "^6.0.0"
   },
@@ -38,7 +38,7 @@
   },
   "scripts": {
     "autotest": "supervisor --watch index.ts,lib,test --extensions ts --no-restart-on exit --quiet --exec npm -- test",
-    "build": "run-s compile test lint doc",
+    "build": "run-s clean compile test lint doc",
     "clean": "run-p clean:compile clean:test clean:doc clean:run",
     "clean:compile": "rimraf git-info.json \"*.{d.ts,js}{,.map}\" \"{events,lib,test}/**/*.{d.ts,js}{,.map}\" \"{events,lib/typings}/types.ts\"",
     "clean:dist": "run-s clean clean:npm",
