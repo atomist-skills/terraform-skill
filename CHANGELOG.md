@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 -   Remove single dispatch. [#28](https://github.com/atomist-skills/terraform-skill/issues/28)
+-   Update @atomist/skill. [a75caa7](https://github.com/atomist-skills/terraform-skill/commit/a75caa766b4761cee32d7f1d9b9b8b78872b3e00)
 
 ## [0.0.3](https://github.com/atomist-skills/terraform-skill/tree/0.0.3) - 2020-07-06
 
