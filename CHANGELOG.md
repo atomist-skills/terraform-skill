@@ -5,7 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased](https://github.com/atomist-skills/terraform-skill/compare/0.0.3...HEAD)
+## [Unreleased](https://github.com/atomist-skills/terraform-skill/compare/0.1.0...HEAD)
+
+## [0.1.0](https://github.com/atomist-skills/terraform-skill/compare/0.0.3...0.1.0) - 2020-10-16
 
 ### Changed
 
