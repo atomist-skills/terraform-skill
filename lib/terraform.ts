@@ -18,16 +18,17 @@ import { Microgrammar } from "@atomist/microgrammar";
 import {
 	EventContext,
 	HandlerStatus,
-	project,
-	Step,
-	slack,
 	log,
+	project,
+	slack,
+	Step,
 } from "@atomist/skill";
 import { createLogger, Logger } from "@atomist/skill-logging";
-import * as _ from "lodash";
 import * as fs from "fs-extra";
+import * as _ from "lodash";
+
 import { OnPushSubscription } from "./typings/types";
-import { StringCapturingProgressLog, findCommitterScreenName } from "./utils";
+import { findCommitterScreenName, StringCapturingProgressLog } from "./utils";
 
 export interface TerraformResult extends HandlerStatus {
 	message?: string[] | string;

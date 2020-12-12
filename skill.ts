@@ -15,11 +15,11 @@
  */
 
 import {
-	ParameterType,
-	parameter,
-	skill,
-	resourceProvider,
 	Category,
+	parameter,
+	ParameterType,
+	resourceProvider,
+	skill,
 } from "@atomist/skill";
 
 export const Skill = skill({
