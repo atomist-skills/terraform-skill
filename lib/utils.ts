@@ -14,15 +14,16 @@
  * limitations under the License.
  */
 
-import { WritableLog } from "@atomist/skill/lib/child_process";
 import {
 	CommandContext,
 	EventContext,
 	HandlerStatus,
 	slack,
 } from "@atomist/skill";
+import { WritableLog } from "@atomist/skill/lib/child_process";
 import * as fs from "fs-extra";
 import { sprintf } from "sprintf-js";
+
 import { TerraformRegistration } from "./terraform";
 import {
 	OnPushSubscription,

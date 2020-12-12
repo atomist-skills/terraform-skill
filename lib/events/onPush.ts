@@ -18,14 +18,16 @@ import {
 	EventContext,
 	EventHandler,
 	HandlerStatus,
-	runSteps,
 	repository,
+	runSteps,
 	secret,
+	slack,
 	Step,
 	StepListener,
-	slack,
 } from "@atomist/skill";
+import { RepositoryId } from "@atomist/skill/lib/repository";
 import * as _ from "lodash";
+
 import {
 	InitTerraform,
 	RunTerraformApply,
@@ -44,7 +46,6 @@ import {
 	setParams,
 	SkillStepState,
 } from "../utils";
-import { RepositoryId } from "@atomist/skill/lib/repository";
 
 export async function updateSlackState(
 	title: string,
