@@ -15,18 +15,19 @@
  */
 
 import { CommandHandler } from "@atomist/skill/lib/handler";
+import { runSteps } from "@atomist/skill/lib/steps";
+import * as _ from "lodash";
+
+import { LoadProjectStep, SetParamsStep, slackUpdate } from "../events/onPush";
 import {
-	TerraformRegistration,
-	SelectWorkspaceTerraform,
 	InitTerraform,
-	ValidateTerraform,
 	RunTerraformApply,
+	SelectWorkspaceTerraform,
 	SetTerraformVersion,
+	TerraformRegistration,
+	ValidateTerraform,
 } from "../terraform";
 import { configureLogging } from "../utils";
-import { LoadProjectStep, slackUpdate, SetParamsStep } from "../events/onPush";
-import * as _ from "lodash";
-import { runSteps } from "@atomist/skill/lib/steps";
 
 export const handler: CommandHandler = async ctx => {
 	// Configure Logging
