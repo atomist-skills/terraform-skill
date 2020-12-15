@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@atomist/microgrammar": "^1.2.1",
-    "@atomist/skill": "^0.6.3-main.39",
+    "@atomist/skill": "^0.6.3-main.40",
     "fs-extra": "^9.0.1",
     "strip-ansi": "^6.0.0"
   },
@@ -63,8 +63,8 @@
     "@types/mocha": "^8.2.0",
     "@types/power-assert": "^1.5.3",
     "@types/sinon": "^9.0.9",
-    "@typescript-eslint/eslint-plugin": "^4.9.1",
-    "@typescript-eslint/parser": "^4.9.1",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.3.0",
