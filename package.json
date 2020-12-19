@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@atomist/microgrammar": "^1.2.1",
-    "@atomist/skill": "^0.6.3-main.45",
+    "@atomist/skill": "^0.6.3-main.47",
     "fs-extra": "^9.0.1",
     "strip-ansi": "^6.0.0"
   },
@@ -65,7 +65,7 @@
     "@types/sinon": "^9.0.9",
     "@typescript-eslint/eslint-plugin": "^4.10.0",
     "@typescript-eslint/parser": "^4.10.0",
-    "eslint": "^7.15.0",
+    "eslint": "^7.16.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
