@@ -45,7 +45,7 @@
     "skill:package": "atm-skill package",
     "skill:register": "atm-skill register",
     "start": "functions-framework --target=entryPoint --signature-type=event",
-    "test": "mocha --require espower-typescript/guess --require source-map-support/register \"test/**/*.test.ts\"",
+    "test": "mocha --require espower-typescript/guess \"test/**/*.test.ts\"",
     "test:one": "mocha --require espower-typescript/guess \"test/**/${TEST:-*.test.ts}\"",
     "typedoc": "npm run doc"
   },
