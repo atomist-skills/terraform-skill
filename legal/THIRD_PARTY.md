@@ -20,7 +20,7 @@ This page details all runtime dependencies of `@atomist/terraform-skill`.
 | [GPL-3.0](#gpl-30)              | 2     |
 | [ISC](#isc)                     | 46    |
 | [MIT AND Zlib](#mit-and-zlib)   | 1     |
-| [MIT](#mit)                     | 590   |
+| [MIT](#mit)                     | 591   |
 | [Public Domain](#public-domain) | 1     |
 
 #### 0BSD
@@ -280,9 +280,10 @@ MIT License - [https://opensource.org/licenses/MIT](https://opensource.org/licen
 | `@babel/types`                                       | `7.12.13`      | Sebastian McKenzie             | [https://github.com/babel/babel](https://github.com/babel/babel)                                                                                                                                     |
 | `@babel/types`                                       | `7.13.0`       | Sebastian McKenzie             | [https://github.com/babel/babel](https://github.com/babel/babel)                                                                                                                                     |
 | `@endemolshinegroup/cosmiconfig-typescript-loader`   | `3.0.2`        | Endemol Shine Group Technology | [https://github.com/EndemolShineGroup/cosmiconfig-typescript-loader](https://github.com/EndemolShineGroup/cosmiconfig-typescript-loader)                                                             |
-| `@graphql-codegen/cli`                               | `1.21.2`       | Dotan Simha                    | [https://github.com/dotansimha/graphql-code-generator](https://github.com/dotansimha/graphql-code-generator)                                                                                         |
+| `@graphql-codegen/cli`                               | `1.21.3`       | Dotan Simha                    | [https://github.com/dotansimha/graphql-code-generator](https://github.com/dotansimha/graphql-code-generator)                                                                                         |
 | `@graphql-codegen/core`                              | `1.17.9`       | Dotan Simha                    | [https://github.com/dotansimha/graphql-code-generator](https://github.com/dotansimha/graphql-code-generator)                                                                                         |
 | `@graphql-codegen/plugin-helpers`                    | `1.18.3`       |                                | [https://github.com/dotansimha/graphql-code-generator](https://github.com/dotansimha/graphql-code-generator)                                                                                         |
+| `@graphql-codegen/plugin-helpers`                    | `1.18.4`       |                                | [https://github.com/dotansimha/graphql-code-generator](https://github.com/dotansimha/graphql-code-generator)                                                                                         |
 | `@graphql-codegen/typescript-operations`             | `1.17.15`      |                                | [https://github.com/dotansimha/graphql-code-generator](https://github.com/dotansimha/graphql-code-generator)                                                                                         |
 | `@graphql-codegen/typescript`                        | `1.21.1`       |                                | [https://github.com/dotansimha/graphql-code-generator](https://github.com/dotansimha/graphql-code-generator)                                                                                         |
 | `@graphql-codegen/visitor-plugin-common`             | `1.19.0`       |                                | [https://github.com/dotansimha/graphql-code-generator](https://github.com/dotansimha/graphql-code-generator)                                                                                         |
