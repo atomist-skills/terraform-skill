@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@atomist/microgrammar": "^1.2.1",
-    "@atomist/skill": "^0.7.1",
+    "@atomist/skill": "^0.9.1",
     "fs-extra": "^9.1.0",
     "strip-ansi": "^6.0.0"
   },
