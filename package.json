@@ -1,6 +1,6 @@
 {
   "name": "@atomist/terraform-skill",
-  "homepage": "https://github.com/atomist-skills/terraform-skill",
+  "homepage": "https://github.com/atomist-skills/terraform-skill#readme",
   "license": "Apache-2.0",
   "author": {
     "email": "oss@atomist.com",
@@ -56,7 +56,7 @@
     "strip-ansi": "^6.0.0"
   },
   "devDependencies": {
-    "@atomist/npm-tools": "^0.1.1-master.0",
+    "@atomist/npm-tools": "^0.1.1-main.0",
     "@google-cloud/functions-framework": "^1.7.1",
     "@graphql-codegen/cli": "^1.21.4",
     "@graphql-codegen/typescript": "^1.22.0",
