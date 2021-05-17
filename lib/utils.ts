@@ -159,9 +159,8 @@ export async function retrieveGcpCreds(
   }`;
 
 	const result: GcpAuthCred = await ctx.graphql.query(query, {
-		id:
-			ctx.configuration.resourceProviders.gcp.selectedResourceProviders[0]
-				.id,
+		id: ctx.configuration.resourceProviders.gcp.selectedResourceProviders[0]
+			.id,
 	});
 	return result.GoogleCloudPlatformProvider[0].credential.secret;
 }
