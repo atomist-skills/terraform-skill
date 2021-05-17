@@ -162,8 +162,7 @@ export const ValidateTerraform: Step<
 		if (!found) {
 			return {
 				code: 3,
-				reason:
-					"No backend configured! State will be lost!  Please configure a backend and try again!",
+				reason: "No backend configured! State will be lost!  Please configure a backend and try again!",
 			};
 		}
 
@@ -245,8 +244,7 @@ export const RunTerraformPlan: Step<
 						text: "Run Apply",
 						confirm: {
 							title: "Run Terraform Apply",
-							text:
-								"You are about to perform a potentionally destructive action, are you sure?",
+							text: "You are about to perform a potentionally destructive action, are you sure?",
 							ok_text: "Apply",
 							dismiss_text: "Cancel",
 						},
