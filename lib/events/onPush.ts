@@ -115,7 +115,7 @@ async function updateRepo(
 
 export async function slackUpdate<
 	C extends EventContext<OnPushSubscription, TerraformRegistration>,
-	G extends TerraformRegistration = any
+	G extends TerraformRegistration = any,
 >(
 	ctx: C,
 	steps: Array<Step<any>>,
@@ -247,64 +247,62 @@ export async function slackUpdate<
 	};
 }
 
-export const handler: EventHandler<
-	OnPushSubscription,
-	TerraformRegistration
-> = async ctx => {
-	// Explicitly set home
-	process.env.HOME = "/tmp";
+export const handler: EventHandler<OnPushSubscription, TerraformRegistration> =
+	async ctx => {
+		// Explicitly set home
+		process.env.HOME = "/tmp";
 
-	// Test branch
-	const branch = (ctx.configuration.parameters as any).branch;
-	if (branch && !(branch === ctx.data.Push[0].branch)) {
+		// Test branch
+		const branch = (ctx.configuration.parameters as any).branch;
+		if (branch && !(branch === ctx.data.Push[0].branch)) {
+			return {
+				code: 0,
+				reason: `Incoming branch [${ctx.data.Push[0].branch}] does not match configured branch [${branch}], skipping.`,
+			};
+		}
+
+		// Configure Logging
+		configureLogging((ctx.configuration.parameters as any).logLevel);
+
+		// Define steps to run
+		const steps = [
+			SetParamsStep,
+			LoadProjectStep,
+			SetTerraformVersion,
+			InitTerraform,
+			ValidateTerraform,
+			SelectWorkspaceTerraform,
+			RunTerraformPlan,
+			RunTerraformApply,
+		];
+
+		const slackListener = await slackUpdate(
+			ctx,
+			steps,
+			ctx.configuration.parameters.autoApprove
+				? "Terraform Execution"
+				: "Terraform Plan Execution",
+			{
+				name: ctx.data.Push[0].repo.name,
+				owner: ctx.data.Push[0].repo.owner,
+				branch: ctx.data.Push[0].branch,
+				sha: ctx.data.Push[0].after.sha,
+				commitUrl: ctx.data.Push[0].after.url,
+			},
+			ctx.data.Push[0].repo.channels.map(c => c.name),
+		);
+
+		const result = await runSteps({
+			context: ctx,
+			steps,
+			listeners: [slackListener],
+		});
+
 		return {
-			code: 0,
-			reason: `Incoming branch [${ctx.data.Push[0].branch}] does not match configured branch [${branch}], skipping.`,
+			code: result.code,
+			reason: result.code === 0 ? "Success" : result.reason,
 		};
-	}
-
-	// Configure Logging
-	configureLogging((ctx.configuration.parameters as any).logLevel);
-
-	// Define steps to run
-	const steps = [
-		SetParamsStep,
-		LoadProjectStep,
-		SetTerraformVersion,
-		InitTerraform,
-		ValidateTerraform,
-		SelectWorkspaceTerraform,
-		RunTerraformPlan,
-		RunTerraformApply,
-	];
-
-	const slackListener = await slackUpdate(
-		ctx,
-		steps,
-		ctx.configuration.parameters.autoApprove
-			? "Terraform Execution"
-			: "Terraform Plan Execution",
-		{
-			name: ctx.data.Push[0].repo.name,
-			owner: ctx.data.Push[0].repo.owner,
-			branch: ctx.data.Push[0].branch,
-			sha: ctx.data.Push[0].after.sha,
-			commitUrl: ctx.data.Push[0].after.url,
-		},
-		ctx.data.Push[0].repo.channels.map(c => c.name),
-	);
-
-	const result = await runSteps({
-		context: ctx,
-		steps,
-		listeners: [slackListener],
-	});
-
-	return {
-		code: result.code,
-		reason: result.code === 0 ? "Success" : result.reason,
 	};
-};
 
 export const SetParamsStep: Step<
 	EventContext<OnPushSubscription>,
