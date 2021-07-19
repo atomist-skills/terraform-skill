@@ -1,5 +1,5 @@
 # Set up build
-FROM node:lts AS build
+FROM node:lts@sha256:0c558991de47e614588a61f9cc90afdcf034c6fc641d3ab650c9570a98b37605 AS build
 WORKDIR /usr/local/src/skill
 COPY . ./
 
@@ -7,7 +7,7 @@ RUN npm ci --no-optional && \
     npm run compile && \
     rm -rf .git node_modules
 
-FROM node:lts
+FROM node:lts@sha256:0c558991de47e614588a61f9cc90afdcf034c6fc641d3ab650c9570a98b37605
 WORKDIR "/skill"
 COPY package.json package-lock.json ./
 RUN npm ci --no-optional \
