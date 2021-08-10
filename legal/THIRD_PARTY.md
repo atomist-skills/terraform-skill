@@ -8,21 +8,22 @@ This page details all runtime dependencies of `@atomist/terraform-skill`.
 
 ### Summary
 
-| License                         | Count |
-| ------------------------------- | ----- |
-| [0BSD](#0bsd)                   | 5     |
-| [Apache-2.0](#apache-20)        | 36    |
-| [BSD-2-Clause](#bsd-2-clause)   | 9     |
-| [BSD-3-Clause](#bsd-3-clause)   | 22    |
-| [CC-BY-4.0](#cc-by-40)          | 1     |
-| [CC0-1.0](#cc0-10)              | 2     |
-| [GPL-2.0](#gpl-20)              | 1     |
-| [GPL-3.0](#gpl-30)              | 2     |
-| [ISC](#isc)                     | 46    |
-| [MIT AND Zlib](#mit-and-zlib)   | 1     |
-| [MIT](#mit)                     | 593   |
-| [Public Domain](#public-domain) | 1     |
-| [Python-2.0](#python-20)        | 1     |
+| License                              | Count |
+| ------------------------------------ | ----- |
+| [0BSD](#0bsd)                        | 5     |
+| [Apache-2.0](#apache-20)             | 36    |
+| [BSD-2-Clause](#bsd-2-clause)        | 9     |
+| [BSD-3-Clause](#bsd-3-clause)        | 22    |
+| [CC-BY-4.0](#cc-by-40)               | 1     |
+| [CC0-1.0](#cc0-10)                   | 2     |
+| [GPL-2.0](#gpl-20)                   | 1     |
+| [GPL-3.0-or-later](#gpl-30-or-later) | 1     |
+| [GPL-3.0](#gpl-30)                   | 1     |
+| [ISC](#isc)                          | 46    |
+| [MIT AND Zlib](#mit-and-zlib)        | 1     |
+| [MIT](#mit)                          | 593   |
+| [Public Domain](#public-domain)      | 1     |
+| [Python-2.0](#python-20)             | 1     |
 
 #### 0BSD
 
@@ -153,10 +154,17 @@ GNU General Public License v2.0 only - [https://www.gnu.org/licenses/old-license
 
 GNU General Public License v3.0 only - [https://www.gnu.org/licenses/gpl-3.0-standalone.html](https://www.gnu.org/licenses/gpl-3.0-standalone.html)
 
-| Name                    | Version | Publisher        | Repository                                                                         |
-| ----------------------- | ------- | ---------------- | ---------------------------------------------------------------------------------- |
-| `@atomist/microgrammar` | `1.2.1` | Atomist          | [https://github.com/atomist/microgrammar](https://github.com/atomist/microgrammar) |
-| `jszip`                 | `3.6.0` | Stuart Knightley | [https://github.com/Stuk/jszip](https://github.com/Stuk/jszip)                     |
+| Name                    | Version | Publisher | Repository                                                                         |
+| ----------------------- | ------- | --------- | ---------------------------------------------------------------------------------- |
+| `@atomist/microgrammar` | `1.2.1` | Atomist   | [https://github.com/atomist/microgrammar](https://github.com/atomist/microgrammar) |
+
+#### GPL-3.0-or-later
+
+GNU General Public License v3.0 or later - [https://www.gnu.org/licenses/gpl-3.0-standalone.html](https://www.gnu.org/licenses/gpl-3.0-standalone.html)
+
+| Name    | Version | Publisher        | Repository                                                     |
+| ------- | ------- | ---------------- | -------------------------------------------------------------- |
+| `jszip` | `3.7.1` | Stuart Knightley | [https://github.com/Stuk/jszip](https://github.com/Stuk/jszip) |
 
 #### ISC
 
@@ -581,7 +589,7 @@ MIT License - [https://opensource.org/licenses/MIT](https://opensource.org/licen
 | `json5`                                              | `2.2.0`        | Aseem Kishore                  | [https://github.com/json5/json5](https://github.com/json5/json5)                                                                                                                                     |
 | `jsonfile`                                           | `6.1.0`        | JP Richardson                  | [https://github.com/jprichardson/node-jsonfile](https://github.com/jprichardson/node-jsonfile)                                                                                                       |
 | `jsonwebtoken`                                       | `8.5.1`        | auth0                          | [https://github.com/auth0/node-jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)                                                                                                             |
-| `jszip`                                              | `3.6.0`        | Stuart Knightley               | [https://github.com/Stuk/jszip](https://github.com/Stuk/jszip)                                                                                                                                       |
+| `jszip`                                              | `3.7.1`        | Stuart Knightley               | [https://github.com/Stuk/jszip](https://github.com/Stuk/jszip)                                                                                                                                       |
 | `jwa`                                                | `1.4.1`        | Brian J. Brennan               | [https://github.com/brianloveswords/node-jwa](https://github.com/brianloveswords/node-jwa)                                                                                                           |
 | `jwa`                                                | `2.0.0`        | Brian J. Brennan               | [https://github.com/brianloveswords/node-jwa](https://github.com/brianloveswords/node-jwa)                                                                                                           |
 | `jws`                                                | `3.2.2`        | Brian J Brennan                | [https://github.com/brianloveswords/node-jws](https://github.com/brianloveswords/node-jws)                                                                                                           |
