@@ -1,5 +1,5 @@
 # Set up build
-FROM node:lts@sha256:580a0850049c59a48f06090edd48c9f966c5e6572bbbabc369ba3ecbc4855dba AS build
+FROM node:lts@sha256:79d350bf454e08b5e5c3a3f081191b1ea17dbb880fd9bf364d2e6a9626ffa472 AS build
 WORKDIR /usr/local/src/skill
 COPY . ./
 
