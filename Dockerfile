@@ -7,7 +7,7 @@ RUN npm ci --no-optional && \
     npm run compile && \
     rm -rf .git node_modules
 
-FROM node:lts@sha256:580a0850049c59a48f06090edd48c9f966c5e6572bbbabc369ba3ecbc4855dba
+FROM node:lts@sha256:4b0b5c3db44f567d5d25c80a6fe33a981d911cdae20b39d2395be268aea2cb97
 WORKDIR "/skill"
 COPY package.json package-lock.json ./
 RUN npm ci --no-optional \
